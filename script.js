@@ -133,11 +133,4 @@ function clearData(){
 document.getElementById('clear').addEventListener('click', clearData);
 
 
-// event 3, functions for onmouseover and onmouseout events 
-function bigImg(x) {
-    x.style.width = "500px";
-  }
-function normalImg(x) {
-    x.style.width = "250px";
-  }
 
