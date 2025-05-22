@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--Hajar habiburahman 2211350-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="media/favicon.png">
+    <title>G4ME FINDER</title>
+</head>
+<body>
+    <header>
+        <p>
+            <img id="header" src="media/header.png" alt="game finder logo " onmouseover="bigImg(this)" onmouseout="normalImg(this)" width="250px">
+        </p>
+        <h2>Enter your interests to get some game suggestions!</h2>    
+    </header>
+
+    <form id="gameform"> <!--form to take the users inputs-->
+            <p>
+                Choose your favored platform:
+                <label>
+                    <input type="radio" name="platform" value="pc"> PC
+                </label>
+                <label>
+                    <input type="radio" name="platform" value="browser"> Browser
+                </label>
+                <label>
+                    <input type="radio" name="platform" value="all"> All
+                </label>
+            </p>
+
+            <p>Select your Category:
+            <select id="category" name="category">
+                <option value="mmorpg">MMORPG</option>
+                <option value="shooter">Shooter</option>
+                <option value="moba">MOBA</option>
+                <option value="racing">Racing</option>
+                <option value="sports">Sports</option>
+                <option value="social">Social</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="open world">Open-world</option>
+                <option value="survival">Survival</option>
+                <option value="pixel">Pixel</option>
+                <option value="turn-based">Turn-based</option>
+                <option value="first-person">First-person</option>
+                <option value="third-Person">Third-Person</option>
+                <option value="side-scroller">Side-scroller</option>
+                <option value="superhero">Superhero</option>
+                <option value="card">Card</option>
+                <option value="battle-royale">Battle-royale</option>
+                <option value="mmo">MMO</option>
+                <option value="sci-fi">Sci-fi</option>
+                <option value="fighting">Fighting</option>
+                <option value="action-rpg">Action-rpg</option>
+                <option value="action">Action</option>
+                <option value="horror">Horror</option>
+            </select></p>
+
+            <p>Sort By:
+            <select id="sortBy" name="sortBy">
+                <option value="release-date">Release Date</option>
+                <option value="popularity">Popularity</option>
+                <option value="alphabetical">Alphabetical</option>
+            </select></p>
+    </form>
+
+    <!--event 1-->
+    <button id="recommendation" onclick="getData()">Get Recommendation</button>
+    <button id="clear" onclick="clearData()">Clear Data</button>
+
+    
+
+    <div id="game" ></div><!--recomendations go here-->
+
+    <script src="script.js"></script>
+</body>
+</html>

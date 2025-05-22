@@ -1,0 +1,121 @@
+html, body {
+    height: 100%; 
+    margin: 0; 
+    padding: 0; 
+    text-align: center;
+    background-color: #bbeb94;
+}
+
+img {
+    border-radius: 30px;
+}
+
+h2 {
+    margin-top: 10px;
+    padding:10px;
+    color: #0b4405;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+h4{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 26px;
+}
+p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form {
+    margin: 30px ;
+}
+
+button {
+    background-color: #199f09;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 10px 0; 
+}
+
+button:hover {
+    background-color: limegreen;
+}
+
+.error{
+    color:red; /*error in red*/
+}
+
+#game {
+    background-color: #f1f1f1;
+    margin: 40px;
+    border-radius: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.highlight {
+    background-color: #ffeb3b; 
+}
+
+.game-item {
+    padding: 10px;
+    margin: 5px;
+}
+
+/* media responsiveness */
+@media (min-width: 992px) {
+    h4 {
+        font-size: 26px;
+    }
+
+    button {
+        width: auto;
+        font-size: 16px;
+    }
+
+    #game {
+        margin: 40px;
+    }
+
+    .game-item {
+        margin: 5px;
+    }
+}
+
+
+
+@media  (max-width: 768px) {
+    h4 {
+        font-size: 24px;
+    }
+
+    button {
+        width: auto;
+        font-size: 15px;
+    }
+
+    #game {
+        margin: 30px;
+    }
+
+    .game-item {
+        margin: 10px;
+    }
+}
+@media (max-width: 572px) {
+    h4 {
+        font-size: 20px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #game {
+        margin: 20px;
+    }
+
+    .game-item {
+        margin: 10px 0;
+    }
+}
+
