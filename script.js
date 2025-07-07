@@ -1,23 +1,21 @@
-//Hajar habiburahman 2211350
-
-async function getData() {// sending ajax using the fetch api
+async function getData() {
     let platforms = document.getElementsByName("platform");
     let platform;
-    for (let i = 0; i < platforms.length; i++) {// take the selected value from the radio buttons
+    for (let i = 0; i < platforms.length; i++) {
         if (platforms[i].checked) {
             platform = platforms[i].value;
             break;
-        }}
+        }
+    }
 
-    // take the value feom the select options 
     let category = document.getElementById("category").value; 
     let sortBy = document.getElementById("sortBy").value;
 
-    if (platform && category && sortBy) {// if all the inputs are selected
+    if (platform && category && sortBy) {
         let endpoint = `https://mmo-games.p.rapidapi.com/games?platform=${platform}&category=${category}&sort-by=${sortBy}`;
         console.log(endpoint);
         try {
-            const response = await fetch(endpoint, { //sending request
+            const response = await fetch(endpoint, {
                 method: 'GET',
                 headers: {
                     'x-rapidapi-host': 'mmo-games.p.rapidapi.com',
@@ -30,8 +28,8 @@ async function getData() {// sending ajax using the fetch api
             }
 
             let data = await response.json();
-            displayRecommendations(data);// display the data 
-        } catch (err) { // handeling errors
+            displayRecommendations(data);
+        } catch (err) {
             console.error(err);
             displayError("Sorry, an error occurred while fetching data.");
         }
@@ -42,27 +40,26 @@ async function getData() {// sending ajax using the fetch api
 
 document.getElementById('recommendation').addEventListener('click', getData);
 
-
-
-
-function displayRecommendations(data) { // retrieve the data and add it to the DOM and display it on the webpage
+function displayRecommendations(data) {
     const gameDiv = document.getElementById("game");
-    gameDiv.innerHTML = ""; 
+    gameDiv.innerHTML = ""; // Clear previous recommendations
 
+    // Create header and hint elements
     const headerDiv = document.createElement("div");
+    headerDiv.classList.add("header"); // Add class for styling
+
     const header = document.createElement("h2");
-    header.textContent= `Game Recommendations:`;
+    header.textContent = `Game Recommendations:`;
     const hint = document.createElement("p");
-    hint.textContent=`Hint: double click a game item to highlight it!`;
+    hint.textContent = `Hint: double click a game item to highlight it!`;
+    
     headerDiv.appendChild(header);
     headerDiv.appendChild(hint);
+    gameDiv.appendChild(headerDiv); // Append header before game items
 
-    gameDiv.appendChild(headerDiv);
+    const games = Array.isArray(data) ? data : [data];
 
-
-    const games = Array.isArray(data) ? data : [data]; //make sure if data retrieved is a array or a single item
-
-    games.forEach(game => {// for each game parse the attributes and create their elements and add them to the dom 
+    games.forEach(game => {
         const gameItem = document.createElement("div");
         gameItem.classList.add("game-item");
 
@@ -71,6 +68,7 @@ function displayRecommendations(data) { // retrieve the data and add it to the D
         const thumbnail = document.createElement("img");
         thumbnail.src = game.thumbnail;
         thumbnail.alt = `${game.title} thumbnail`;
+        thumbnail.style.width = "100%"; // Make the image responsive
         const description = document.createElement("p");
         description.textContent = `Description: ${game.short_description}`;
         const genre = document.createElement("p");
@@ -86,10 +84,6 @@ function displayRecommendations(data) { // retrieve the data and add it to the D
         const gameURL = document.createElement("p");
         gameURL.innerHTML = `<a href="${game.game_url}">Play Now</a>`;
 
-        const brakeElement = document.createElement("br");
-        const lineElement = document.createElement("hr");
-
-        // add the attributes to the dom
         gameItem.appendChild(title);
         gameItem.appendChild(thumbnail);
         gameItem.appendChild(description);
@@ -99,21 +93,16 @@ function displayRecommendations(data) { // retrieve the data and add it to the D
         gameItem.appendChild(developer);
         gameItem.appendChild(releaseDate);
         gameItem.appendChild(gameURL);
-        gameItem.appendChild(lineElement);
-        gameItem.appendChild(brakeElement);
         gameDiv.appendChild(gameItem);
     });
 
-
-    // event 2, highlight the game item by double clicking it and turning it yellow 
     document.querySelectorAll('.game-item').forEach(game => {
         game.addEventListener('dblclick', () => {
-            game.classList.toggle('highlight'); 
+            game.classList.toggle('highlight');
         });
     });
 }
 
-// error function
 function displayError(errorMessage) {
     const gameDiv = document.getElementById("game");
     gameDiv.innerHTML = ""; 
@@ -124,13 +113,9 @@ function displayError(errorMessage) {
     gameDiv.appendChild(errorElement);
 }
 
-// function to remove the recommendations and restart the process
-function clearData(){
+function clearData() {
     const gameDiv = document.getElementById("game");
     gameDiv.innerHTML = ""; 
 }
 
 document.getElementById('clear').addEventListener('click', clearData);
-
-
-

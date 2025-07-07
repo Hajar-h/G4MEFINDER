@@ -13,20 +13,20 @@ img {
 
 h2 {
     margin-top: 10px;
-    padding:10px;
+    padding: 10px;
     color: #0b4405;
     font-family: 'Trebuchet MS', Arial, sans-serif;
 }
-h4{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 26px;
 }
-p{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 form {
-    margin: 30px ;
+    margin: 30px;
 }
 
 button {
@@ -41,29 +41,42 @@ button:hover {
     background-color: limegreen;
 }
 
-.error{
-    color:red; /*error in red*/
+.error {
+    color: red; /* error in red */
 }
 
 #game {
-    background-color: #f1f1f1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards in the container */
     margin: 40px;
-    border-radius: 25px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+.header {
+    text-align: center; /* Center the header and hint */
+    margin-bottom: 20px; /* Add space below the header */
+}
 
+.game-item {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin: 15px;
+    padding: 15px;
+    width: 250px; /* Increased width for the cards */
+    text-align: center; /* Center the text inside the cards */
+    transition: transform 0.2s;
+}
 
+.game-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
 }
 
 .highlight {
     background-color: #ffeb3b; 
 }
 
-.game-item {
-    padding: 10px;
-    margin: 5px;
-}
-
-/* media responsiveness */
+/* Media responsiveness */
 @media (min-width: 992px) {
     h4 {
         font-size: 26px;
@@ -73,19 +86,9 @@ button:hover {
         width: auto;
         font-size: 16px;
     }
-
-    #game {
-        margin: 40px;
-    }
-
-    .game-item {
-        margin: 5px;
-    }
 }
 
-
-
-@media  (max-width: 768px) {
+@media (max-width: 768px) {
     h4 {
         font-size: 24px;
     }
@@ -94,15 +97,8 @@ button:hover {
         width: auto;
         font-size: 15px;
     }
-
-    #game {
-        margin: 30px;
-    }
-
-    .game-item {
-        margin: 10px;
-    }
 }
+
 @media (max-width: 572px) {
     h4 {
         font-size: 20px;
@@ -112,13 +108,4 @@ button:hover {
         width: 100%;
         font-size: 14px;
     }
-
-    #game {
-        margin: 20px;
-    }
-
-    .game-item {
-        margin: 10px 0;
-    }
 }
-
