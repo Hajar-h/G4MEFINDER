@@ -42,11 +42,14 @@ document.getElementById('recommendation').addEventListener('click', getData);
 
 function displayRecommendations(data) {
     const gameDiv = document.getElementById("game");
-    gameDiv.innerHTML = ""; // Clear previous recommendations
+    gameDiv.innerHTML = ""; 
 
     // Create header and hint elements
     const headerDiv = document.createElement("div");
-    headerDiv.classList.add("header"); // Add class for styling
+    headerDiv.classList.add("header"); 
+
+    const headerHint = document.getElementById("headerHint");
+    headerHint.innerHTML = "";
 
     const header = document.createElement("h2");
     header.textContent = `Game Recommendations:`;
@@ -55,7 +58,7 @@ function displayRecommendations(data) {
     
     headerDiv.appendChild(header);
     headerDiv.appendChild(hint);
-    gameDiv.appendChild(headerDiv); // Append header before game items
+    headerHint.appendChild(headerDiv); 
 
     const games = Array.isArray(data) ? data : [data];
 
@@ -64,25 +67,36 @@ function displayRecommendations(data) {
         gameItem.classList.add("game-item");
 
         const title = document.createElement("h4");
-        title.textContent = `Title: ${game.title}`;
+        title.textContent = `${game.title}`;
+        title.classList.add("title"); 
+
         const thumbnail = document.createElement("img");
         thumbnail.src = game.thumbnail;
         thumbnail.alt = `${game.title} thumbnail`;
-        thumbnail.style.width = "100%"; // Make the image responsive
+        thumbnail.style.width = "100%"; 
+
         const description = document.createElement("p");
-        description.textContent = `Description: ${game.short_description}`;
+        description.innerHTML = `<strong>Description:</strong> ${game.short_description}`;
+
         const genre = document.createElement("p");
-        genre.textContent = `Genre: ${game.genre}`;
+        genre.innerHTML = `<strong>Genre:</strong> ${game.genre}`;
+
         const platform = document.createElement("p");
-        platform.textContent = `Platform: ${game.platform}`;
+        platform.innerHTML = `<strong>Platform:</strong> ${game.platform}`;
+
         const publisher = document.createElement("p");
-        publisher.textContent = `Publisher: ${game.publisher}`;
+        publisher.innerHTML = `<strong>Publisher:</strong> ${game.publisher}`;
+
         const developer = document.createElement("p");
-        developer.textContent = `Developer: ${game.developer}`;
+        developer.innerHTML = `<strong>Developer:</strong> ${game.developer}`;
+
         const releaseDate = document.createElement("p");
-        releaseDate.textContent = `Release Date: ${game.release_date}`;
+        releaseDate.innerHTML = `<strong>Release Date:</strong> ${game.release_date}`;
+
         const gameURL = document.createElement("p");
         gameURL.innerHTML = `<a href="${game.game_url}">Play Now</a>`;
+        gameURL.classList.add("gameURL"); 
+
 
         gameItem.appendChild(title);
         gameItem.appendChild(thumbnail);
