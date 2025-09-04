@@ -5,6 +5,8 @@ html, body {
     text-align: center;
     background-color: #bbeb94;
     align-items: center;
+    scroll-behavior:smooth;
+
 }
 
 img {
@@ -46,11 +48,14 @@ button {
     padding: 10px;
     border-radius: 5px;
     font-size: 16px;
-    margin: 10px  
+    margin: 10px ; 
+    transition: transform 0.2s ease; 
+
 }
 
 button:hover {
     background-color: limegreen;
+    transform: translateY(-4px);
 }
 
 .error {
@@ -60,7 +65,7 @@ button:hover {
 #game {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Center the cards in the container */
+    justify-content: center; 
     margin: 40px;
     padding: 10px;
 }
@@ -76,12 +81,12 @@ button:hover {
     margin: 15px;
     padding: 15px;
     width: 350px; 
-    text-align: left; /*  inside the cards */
+    text-align: left; 
     transition: transform 0.2s;
 }
 
 .title , .gameURL{
-    text-align: center; /* Center the title */
+    text-align: center; 
 }
 
 .title{
@@ -92,7 +97,7 @@ button:hover {
 color: aqua;
 }
 .game-item:hover {
-    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    transform: scale(1.05); 
 }
 
 .highlight {
@@ -125,6 +130,16 @@ color: aqua;
         width:380px;
         height:200px;
     }
+        #splash-screen {
+        padding: 10px; 
+    }
+
+    p {
+        font-size: 16px; 
+    }
+        footer h3 {
+        font-size: 24px; 
+    }
 }
 
 @media (max-width: 572px) {
@@ -140,4 +155,107 @@ color: aqua;
         width:380px;
         height:200px;
     }
+        #splash-screen {
+        padding: 5px; 
+    }
+        footer h3 {
+        font-size: 20px; 
+    }
+
+    .contacts img {
+        width: 25px; 
+        height: 25px; 
+    }
+
+    .contacts a {
+        margin: 10px; 
+    }
 }
+
+
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1050; 
+            transition: transform 0.75s ease-out; 
+            display: flex;
+            flex-direction: column;
+        }
+
+/* From Uiverse.io by belmonde_4844 */ 
+.loader {
+  --clr: #0b4405;
+  --load-time: 3s;
+  outline: 5px solid var(--clr);
+  outline-offset: 5px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rem;
+  width: 10rem;
+  padding: 0.5rem 8rem;
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  background-color: var(--clr);
+  z-index: 2;
+  animation: loading var(--load-time) ease-in-out ;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+footer{
+    height: auto;
+    width: auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+footer h3{
+    font-size: 30px;
+}
+.contacts img  {
+    border-radius: 0;
+    transition: transform 0.2s ease; 
+    width:35px;
+    height:35px;
+
+
+}
+.contacts img:hover{
+    transform: translateY(-4px);
+}
+.contacts a {
+    margin: 25px; 
+    
+}
+.subheading{
+font-family:"arial";
+    color:#0b4405;
+}
+
